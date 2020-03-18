@@ -1,3 +1,5 @@
+% funktory z wprowadzenia
+
 add(a, X, X).
 add(s(X), Y, s(Z)) :-
     add(X, Y, Z).
@@ -14,18 +16,18 @@ select(X, [X | L], L).
 select(X, [Y | L1], [Y | L2]) :-
     select(X, L1, L2).
 
-same_length([], []).
-same_length([_ | L1], [_ | L2]) :-
-    same_length(L1, L2).
+% 1 zadanie
 
 no_last_element([], [_]).
 no_last_element([X | L1], [X | L2]) :-
     no_last_element(L1, L2).
 
-środkowy(X, [X]).
-środkowy(X, [_ | L1]) :-
+środkowy([X], X).
+środkowy([_ | L1], X) :-
     no_last_element(L, L1),
-    środkowy(X, L).
+    środkowy(L, X).
+
+% 2 zadanie
 
 jednokrotnie(X, [X]).
 jednokrotnie(X, [Y | L]) :-
@@ -35,6 +37,8 @@ jednokrotnie(X, [Y | L]) :-
 dwukrotnie(X, [Y | L]) :-
     (X = Y, jednokrotnie(X, L));
     (member(X, L), X \= Y, dwukrotnie(X, L)).
+
+% 3 zadanie
 
 arc(a, b).
 arc(b, a).
@@ -51,6 +55,10 @@ osiągalny_P(X, Y, V) :-
 
 osiągalny(X, Y) :-
     osiągalny_P(X, Y, []).
+
+% 4 zadanie - brak
+
+% 5 zadanie
 
 % lista() spełnia specyfikację podaną w zadaniu, aczkolwiek wyświetla więcej rozwiązań niż
 % można by się spodziewać, jako że opisana specyfikacja ma więcej możliwości niż przedstawiony scenariusz
